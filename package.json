@@ -6,12 +6,14 @@
     "@mui/lab": "^5.0.0-alpha.134",
     "@mui/material": "^5.13.6",
     "@mui/styled-engine-sc": "^5.12.0",
+    "axios": "^1.4.0",
     "firebase": "^9.23.0",
     "flowbite": "^1.6.6",
     "react-image-lightbox": "^5.1.4",
     "react-masonry-css": "^1.0.16",
     "react-router-dom": "^6.14.0",
     "styled-components": "^5.3.11",
+    "sweetalert2": "^11.7.19",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

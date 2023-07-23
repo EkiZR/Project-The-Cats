@@ -1,19 +1,18 @@
-import Button from "../Fragments/Button"
-import SectionTv from "../Fragments/SectionTv"
-import SectionHp from "../Fragments/SectionHp"
-import Gallery from "../Fragments/UploadImages"
-import Sign from "../Fragments/Sign"
+import Button from "../Components/Button"
+import SectionTv from "../Components/SectionTv"
+import SectionHp from "../Components/SectionHp"
+import Gallery from "../Components/UploadImages"
 
 const Home = () => {
 	return (
 		<>
 			<section className="SectionImage" id="section1">
 				<div className="LeftText">
-				<b>THE CATS</b>
+					<b>THE CATS</b>
 					<p className="relative bottom-3">
-						A cozy online community for cat lovers to connect, share their adorable feline
-						companions, exchange tips and tricks, and revel in the warmth and joy that comes with
-						being part of the ultimate cat-loving club
+						Join us and feel the warmth of a close social relationship between fellow cat lovers.
+						Make this place a forum for exchanging information, uploading adorable photos, and
+						discussing various tips and tricks for caring for cats.
 					</p>
 					<div className="ButtonNext">
 						<Button />
@@ -26,16 +25,10 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			
-<SectionTv/>
-<SectionHp/>
+			<SectionTv/>
+			<SectionHp />
 
-<Sign/>
-			<Gallery/>
-		
-
-
-			
+			<Gallery id="Gallery"/>
 		</>
 	)
 }

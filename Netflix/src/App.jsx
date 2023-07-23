@@ -1,6 +1,6 @@
 import Home from "./Pages/Home"
-import Navbar from "./Fragments/Navbar"
-import Footer from "./Fragments/Footer"
+import Navbar from "./Components/Navbar"
+import Footer from "./Components/Footer"
 import "./index.css"
 
 function App() {

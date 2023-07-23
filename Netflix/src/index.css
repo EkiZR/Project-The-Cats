@@ -174,7 +174,7 @@ body {
 	color: white;
 	width: 300px;
 	height: 120px;
-	right: 0.3%;
+	right: 0.2%;
 	top: 22%;
 	border-radius: 5pt;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -362,19 +362,38 @@ body {
 	z-index: -1;
 }
 
+/* Contoh gaya CSS untuk mengatur ukuran kotak SweetAlert */
+.my-custom-popup {
+	margin-top: 4%;
+	width: 300px; /* Sesuaikan ukuran lebar sesuai keinginan */
+  }
+  
+  .my-custom-title {
+	font-size: 18px; /* Sesuaikan ukuran font judul sesuai keinginan */
+  }
+  
 
+  #ImgCat1{
+	display: none;
+  }
   
 
 /* Target phone screens and smaller */
 @media only screen and (min-width: 0px) and (max-width: 765px) {
-
+	.my-custom-popup {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 300px; /* Sesuaikan ukuran lebar sesuai keinginan */
+	  }
 
 	.LeftText {
 		color: white;
 		opacity: 80%;
 		position: absolute;
 		left: 5%;
-		top: 30%;
+		top: 25%;
 	}
 
 	.LeftText b {
@@ -449,10 +468,10 @@ body {
 
 	#ImagesHp {
 		width: auto;
-		height: 20em;
+		height: 24em;
 		position: absolute;
 		left: 50%;
-		top: 70%;
+		top: 75%;
 		transform: translate(-50%, -50%);
 	}
 
@@ -469,11 +488,11 @@ body {
 	}
 
 	#CardMedia {
-		width: 220px;
+		width: 245px;
 		height: 100px;
 		position: absolute;
 		left: 50%;
-		top: 75%;
+		top: 78.5%;
 		transform: translate(-50%, -50%);
 	}
 
@@ -487,5 +506,15 @@ body {
 	#ArtistSong {
 		font-size: 0.6em;
 	}
+
+	#ImgCat {
+		display: none;
+	}
+
+	
+	#ImgCat1{
+		display: flex;
+	  }
+	  
 
 }
