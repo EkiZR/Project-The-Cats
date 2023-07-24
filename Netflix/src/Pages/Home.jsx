@@ -25,10 +25,10 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			<SectionTv/>
+			<SectionTv />
 			<SectionHp />
 
-			<Gallery id="Gallery"/>
+			<Gallery id="Gallery" />
 		</>
 	)
 }
