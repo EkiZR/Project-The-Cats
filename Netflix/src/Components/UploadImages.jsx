@@ -45,57 +45,58 @@ function Gallery() {
 	const imageListRef = ref(storage, "images/")
 
 	const uploadImage = () => {
-		if (imageUpload == null) return
-		const uploadedImagesCount = getUploadedImagesCount()
-
+		if (imageUpload == null) return;
+		const uploadedImagesCount = getUploadedImagesCount();
+	
 		if (uploadedImagesCount >= 2) {
 			Swal.fire({
 				icon: "error",
 				title: "Oops...",
-				text: "Im sorry, you can only upload 2 photos.",
-			})
-			return
+				text: "I'm sorry, you can only upload 2 photos.",
+			});
+			return;
 		}
-
-		const imageRef = ref(storage, `images/${imageUpload.name}-${uuidv4()}`)
+	
+		if (imageUpload.size > maxUploadSizeInBytes) {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "The maximum size for a photo is 2MB.",
+			});
+			setSelectedImage(null); // Reset preview image if any
+			return;
+		}
+	
+		const imageRef = ref(storage, `images/${imageUpload.name}-${uuidv4()}`);
 		uploadBytes(imageRef, imageUpload)
 			.then((snapshot) => {
-				// Check image size before updating imageList
-				if (imageUpload.size > maxUploadSizeInBytes) {
-					Swal.fire({
-						icon: "error",
-						title: "Oops...",
-						text: "The maximum size for a photo is 2MB",
+				getDownloadURL(snapshot.ref)
+					.then((url) => {
+						setImageList((prev) => [...prev, url]);
+						incrementUploadedImagesCount();
+						setSelectedImage(null); // Reset preview image if any
+						Swal.fire({
+							position: "top-end",
+							icon: "success",
+							title: "Your work has been saved",
+							showConfirmButton: false,
+							timer: 1500,
+							customClass: {
+								popup: "my-custom-popup", // Atur kelas khusus untuk popup
+								title: "my-custom-title", // Atur kelas khusus untuk judul
+								icon: "my-custom-icon", // Atur kelas khusus untuk ikon
+							},
+						});
 					})
-					setSelectedImage(null) // Reset preview image if any
-				} else {
-					getDownloadURL(snapshot.ref)
-						.then((url) => {
-							setImageList((prev) => [...prev, url])
-							incrementUploadedImagesCount()
-						})
-						.catch((error) => {
-							console.log(error)
-						})
-						setSelectedImage(null) // Reset preview image if any
-					Swal.fire({
-						position: "top-end",
-						icon: "success",	
-						title: "Your work has been saved",
-						showConfirmButton: false,
-						timer: 1500,
-						customClass: {
-							popup: "my-custom-popup", // Atur kelas khusus untuk popup
-							title: "my-custom-title", // Atur kelas khusus untuk judul
-							icon: "my-custom-icon", // Atur kelas khusus untuk ikon
-						},
-					})
-				}
+					.catch((error) => {
+						console.log(error);
+					});
 			})
 			.catch((error) => {
-				console.log(error)
-			})
-	}
+				console.log(error);
+			});
+	};
+	
 
 	useEffect(() => {
 		listAll(imageListRef)
